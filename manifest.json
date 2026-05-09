@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "Monogatari Start Page",
+  "version": "1.0",
+  "description": "A dynamic Monogatari-themed new tab page.",
+  "chrome_url_overrides": {
+    "newtab": "index.html"
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "monogatari-start-page@local.dev"
+    }
+  }
+}

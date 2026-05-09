@@ -1,0 +1,267 @@
+:root {
+  --ui-bg: #121212;
+  --ui-panel: #1e1e1e;
+  --ui-text: #e0e0e0;
+  --ui-border: 3px solid #000000;
+  --ui-outline: #333333;
+  --default-accent: #555555;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  overflow: hidden;
+  background-color: #000;
+  font-family: "Space Grotesk", sans-serif;
+}
+
+/* Settings Trigger */
+.settings-trigger {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  z-index: 10000;
+  width: 50px;
+  height: 50px;
+  background: var(--ui-panel);
+  color: var(--ui-text);
+  border: var(--ui-border);
+  box-shadow: 4px 4px 0 #000;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.1s linear;
+}
+
+.settings-trigger svg {
+  width: 24px;
+  height: 24px;
+}
+
+.settings-trigger:hover {
+  background: var(--ui-text);
+  color: var(--ui-panel);
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 #000;
+}
+
+/* Modal Overlay */
+.settings-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10001;
+}
+
+/* Force hide when the hidden attribute is toggled via JS */
+.settings-modal[hidden] {
+  display: none !important;
+}
+
+/* Wider, Shorter Layout */
+.settings-content {
+  position: relative;
+  background: var(--ui-panel);
+  color: var(--ui-text);
+  border: var(--ui-border);
+  box-shadow: 12px 12px 0 #000;
+  padding: 30px 40px;
+  width: 95%;
+  max-width: 1200px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+/* Close Button */
+.close-btn {
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  width: 40px;
+  height: 40px;
+  background: var(--ui-panel);
+  border: var(--ui-border);
+  color: var(--ui-text);
+  font-family: inherit;
+  font-size: 18px;
+  font-weight: 900;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.1s;
+  z-index: 10;
+}
+
+.close-btn:hover {
+  background: var(--ui-text);
+  color: #000;
+}
+
+/* Typography */
+.section-header {
+  font-size: 20px;
+  font-weight: 900;
+  letter-spacing: -0.5px;
+  border-bottom: 2px solid var(--ui-outline);
+  padding-bottom: 8px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.section-header span {
+  font-size: 12px;
+  color: #888;
+  letter-spacing: 2px;
+}
+
+label {
+  display: block;
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  color: #aaa;
+}
+
+section {
+  margin-bottom: 16px;
+}
+
+/* Inputs */
+input,
+select {
+  width: 100%;
+  padding: 12px 14px;
+  border: 2px solid var(--ui-outline);
+  background: var(--ui-bg);
+  color: var(--ui-text);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  outline: none;
+  transition: all 0.1s;
+}
+
+input:focus,
+select:focus {
+  border-color: var(--ui-text);
+}
+
+.geo-inputs {
+  display: flex;
+  gap: 15px;
+}
+
+.shortcuts-container .shortcut-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+/* Theme Grid & Heroine Colors */
+.theme-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+.theme-grid button {
+  padding: 12px;
+  border: 2px solid var(--ui-outline);
+  background: var(--ui-bg);
+  color: var(--ui-text);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 900;
+  text-transform: uppercase;
+  transition: all 0.1s;
+}
+
+/* Heroine Specific Styling */
+.theme-grid button[data-theme="black_hanekawa"]:hover,
+.theme-grid button[data-theme="black_hanekawa"].active {
+  background: #f9d800;
+  color: #000;
+  border-color: #f9d800;
+}
+
+.theme-grid button[data-theme="hanekawa"]:hover,
+.theme-grid button[data-theme="hanekawa"].active {
+  background: #4c6a52;
+  color: #fff;
+  border-color: #4c6a52;
+}
+
+.theme-grid button[data-theme="hitagi"]:hover,
+.theme-grid button[data-theme="hitagi"].active {
+  background: #614b79;
+  color: #fff;
+  border-color: #614b79;
+}
+
+.theme-grid button[data-theme="nadeko"]:hover,
+.theme-grid button[data-theme="nadeko"].active {
+  background: #f08b53;
+  color: #000;
+  border-color: #f08b53;
+}
+
+.theme-grid button[data-theme="ononoki"]:hover,
+.theme-grid button[data-theme="ononoki"].active {
+  background: #5be5b8;
+  color: #000;
+  border-color: #5be5b8;
+}
+
+.theme-grid button[data-theme="shinobu"]:hover,
+.theme-grid button[data-theme="shinobu"].active {
+  background: #d4af37;
+  color: #000;
+  border-color: #d4af37;
+}
+
+.theme-grid button[data-theme="tsukihi"]:hover,
+.theme-grid button[data-theme="tsukihi"].active {
+  background: #006a66;
+  color: #fff;
+  border-color: #006a66;
+}
+
+.theme-grid button:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+/* Save Action */
+.save-btn {
+  margin-top: auto;
+  width: 100%;
+  padding: 16px;
+  background: var(--ui-outline);
+  color: var(--ui-text);
+  border: var(--ui-border);
+  font-family: inherit;
+  font-weight: 900;
+  font-size: 16px;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: all 0.1s;
+}
+
+.save-btn:hover {
+  background: var(--ui-text);
+  color: #000;
+}
