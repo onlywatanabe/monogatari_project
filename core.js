@@ -441,6 +441,13 @@ function runThemeEngines(theme) {
           }
         });
       });
+      
+      const greetingEl = document.getElementById("greeting");
+      if (greetingEl) {
+        const username = config.username?.trim() || "user";
+        greetingEl.textContent = `welcome back, ${username}.`;
+      }
+      
       break;
 
     case "shinobu":
